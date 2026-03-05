@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FCAR: Force-Conditioned Action Residual Policies for Contact-Rich Manipulation</title>
+  <meta name="description" content="FCAR addresses modality collapse and uncoordinated policy-level fusion through action-space decoupling and a learnable adaptive gate for contact-rich manipulation.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="title">FCAR: Force-Conditioned Action Residual Policies for Contact-Rich Manipulation</h1>
+      <div class="authors">
+        <span class="author">Xu Lihanfei</span><span class="affiliation">1</span>
+        <span class="author">[Author 2]</span><span class="affiliation">2</span>
+        <!-- Add more authors as needed -->
+      </div>
+      <div class="affiliations">
+        <span class="affil">1 University of Twente</span>
+        <span class="affil">2 [Affiliation 2]</span>
+      </div>
+      <div class="links">
+        <a href="#" class="btn">Paper</a>
+        <a href="#" class="btn">arXiv</a>
+        <a href="#" class="btn">Video</a>
+        <a href="https://github.com/YOUR_USERNAME/FCAR" class="btn">Code</a>
+      </div>
+    </header>
+
+    <section class="teaser">
+      <img src="teaser.png" alt="FCAR overview: action-space decoupling and adaptive gate for contact-rich tasks (PIH, Drawer, Wiping)." class="teaser-img">
+      <p class="teaser-caption">FCAR uses a vision-proprioception base policy for nominal motion and a force-conditioned residual for contact correction, fused by a learned gate that allocates authority from interaction state without contact labels.</p>
+    </section>
+
+    <section class="abstract">
+      <h2>Abstract</h2>
+      <p>
+        Vision-based imitation learning has achieved remarkable success in robotic manipulation. However, contact-rich tasks demand real-time force feedback, as vision alone cannot capture intricate contact dynamics. Existing methods pursue two directions: <em>feature-level fusion</em> concatenates visual and force representations within shared backbones, yet suffers from modality collapse where high-dimensional visual features dominate optimization and suppress force signals; <em>policy-level fusion</em> merges separate policy outputs in action space, yet is often phase-agnostic—relying on fixed or discrete combination that cannot adapt to contact phase.
+      </p>
+      <p>
+        We present FCAR, an architecture that addresses both limitations through action-space decoupling and a learnable adaptive gate. FCAR uses a vision-proprioception base policy for nominal motion and a force-conditioned residual for contact correction, fused by a gate that allocates authority from interaction state without contact labels. By isolating modalities until the action space, FCAR structurally prevents modality collapse while enabling seamless phase transitions. Experiments on real-world peg-in-hole insertion, drawer manipulation, and surface wiping show 88.3% average success rate, outperforming the strongest feature-level and policy-level baselines by 11.6 percentage points, with strong generalization to unseen physical conditions.
+      </p>
+    </section>
+
+    <section class="video">
+      <h2>Video</h2>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="FCAR video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="video-caption">Overview of FCAR architecture, experiments on PIH / Drawer / Wiping, and comparison with feature-level and policy-level fusion baselines.</p>
+    </section>
+
+    <section class="results">
+      <h2>Results</h2>
+      <p>
+        We evaluate FCAR on a 7-DoF Franka Panda with joint torque sensing and a third-person RGB camera. Three contact-rich tasks: <strong>Peg-in-Hole (PIH)</strong>, <strong>Drawer</strong>, and <strong>Wiping</strong>. FCAR reaches 88.3% average success rate (90% PIH, 90% Drawer, 85% Wiping), outperforming FoAR by 11.6 percentage points and the heuristic-gated policy-level baseline by a large margin. Ablations confirm the necessity of the residual branch, modality decoupling, learned gate, and two-stage training. FCAR also generalizes to unseen positions, initial offsets, and surface conditions (81.3% on OOD settings).
+      </p>
+    </section>
+
+    <section class="bibtex">
+      <h2>BibTeX</h2>
+      <pre>@inproceedings{fcar2025,
+  title     = {FCAR: Force-Conditioned Action Residual Policies for Contact-Rich Manipulation},
+  author    = {Xu, Lihanfei and [Author 2]},
+  booktitle = {[Venue]},
+  year      = {2025}
+}</pre>
+    </section>
+
+    <footer class="footer">
+      <p>This website is based on the <a href="https://github.com/nerfies/nerfies.github.io">nerfies.github.io</a> template (CC BY-SA 4.0).</p>
+    </footer>
+  </div>
+</body>
+</html>
