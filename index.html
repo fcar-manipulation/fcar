@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="FCAR: Force-Conditioned Action Residual Policies for Contact-Rich Manipulation. Action-space decoupling and adaptive gating for vision-force fusion in manipulation.">
+  <meta name="keywords" content="FCAR, robotic manipulation, force feedback, imitation learning, contact-rich">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FCAR: Force-Conditioned Action Residual Policies for Contact-Rich Manipulation</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./static/css/style.css">
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="#abstract"><span class="icon"><i class="fas fa-align-left"></i></span> Abstract</a>
+      <a class="navbar-item" href="#video">Video</a>
+      <a class="navbar-item" href="#method">Method</a>
+      <a class="navbar-item" href="#experiments">Experiments</a>
+      <a class="navbar-item" href="#bibtex">BibTeX</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">FCAR: Force-Conditioned Action Residual Policies for Contact-Rich Manipulation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Anonymous Author(s)</span>
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://fcar-manipulation.github.io/fcar/" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-globe"></i></span>
+                  <span>Project</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="teaser-figure">
+        <img src="./static/images/teaser.png" alt="FCAR teaser: Force-Conditioned Action Residuals for Contact-Rich Manipulation" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div class="teaser-placeholder" style="display:none;">
+          <p>Teaser Figure (请将 图1.pdf 导出为 teaser.png 放入 static/images/)</p>
+          <p class="is-size-7">Left: feature-level vs policy-level fusion. Middle: FCAR action-space decoupling with adaptive gate. Right: results on assembly and articulated object tasks.</p>
+        </div>
+      </div>
+      <h2 class="subtitle has-text-centered">
+        FCAR achieves robust coordination via <strong>action-space decoupling</strong>: a vision–proprioception base policy for global planning and a torque-conditioned residual policy with a learned adaptive gate for contact correction.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="video">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <p class="content has-text-justified">效果展示：将主视频 <code>teaser.mp4</code> 放入 <code>static/videos/</code> 目录即可在此播放；或改为嵌入 YouTube / B 站链接（见 index.html 内注释）。</p>
+        <div class="publication-video">
+          <!-- 方式一：本地视频。将 teaser.mp4 放入 static/videos/ 即可 -->
+          <video id="teaser-video" controls muted loop playsinline>
+            <source src="./static/videos/teaser.mp4" type="video/mp4">
+            您的浏览器不支持 video 标签，请将 teaser.mp4 放入 static/videos/ 或使用 Chrome 打开。
+          </video>
+          <!-- 方式二：使用 YouTube。把下面注释去掉并填上 VIDEO_ID，可删掉上面 video 标签 -->
+          <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Vision-based imitation learning has recently enabled impressive progress in robotic manipulation. However, contact-rich tasks demand force feedback, as vision alone cannot capture intricate contact dynamics. Existing methods pursue two directions: <em>feature-level fusion</em> concatenates visual and force representations within shared backbones, yet suffers from modality collapse where high-dimensional visual features dominate optimization and suppress force signals; <em>policy-level fusion</em> merges separate policy outputs in action space, yet is often phase-agnostic that cannot adapt to contact phase.
+          </p>
+          <p>
+            We present <strong>FCAR</strong>, an architecture that addresses both limitations through action-space decoupling and a learnable adaptive gate. FCAR uses a vision-proprioception base policy for nominal motion and a force-conditioned residual for contact correction, fused by a gate that allocates authority based on the interaction state without contact labels. By isolating modalities until the action space, FCAR structurally prevents modality collapse while enabling seamless phase transitions.
+          </p>
+          <p>
+            Experiments on real-world peg-in-hole insertion, drawer manipulation, and surface wiping show <strong>88.3%</strong> average success rate, outperforming the strongest feature-level and policy-level baselines by <strong>11.6%</strong>, with strong generalization to unseen physical conditions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="method">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Method</h2>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p>
+            FCAR enforces <strong>functional separation</strong> by strictly decoupling modalities in the action space: a visual-proprioceptive <strong>Base Policy</strong> drives global geometric planning, while a force-conditioned <strong>Residual Policy</strong> provides local, high-frequency corrections. These streams are integrated via a learnable <strong>Adaptive Gating Mechanism</strong> that autonomously shifts control authority based on the real-time interaction state.
+          </p>
+          <p>
+            Final action: \( a_t = a^{\text{base}}_t + \alpha_t \cdot \Delta a_t \), where \( a^{\text{base}}_t \) is the vision-driven nominal action, \( \Delta a_t \) the force-conditioned residual, and \( \alpha_t \in [0, 1] \) the learnable gate.
+          </p>
+        </div>
+        <div class="method-figure">
+          <img src="./static/images/architecture.png" alt="FCAR architecture overview" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="teaser-placeholder" style="display:none;">
+            <p>Architecture Figure (请将 figs (2).pdf 导出为 architecture.png)</p>
+          </div>
+        </div>
+        <div class="content has-text-justified">
+          <h3 class="title is-5">Two-Stage Training</h3>
+          <p><strong>Stage 1:</strong> Base policy trained independently on vision-proprioception only. <strong>Stage 2:</strong> Base frozen; residual policy and adaptive gate trained with stop-gradient on base output and L1 sparsity on gate activation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light" id="experiments">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Experiments</h2>
+    <div class="content has-text-justified">
+      <p>We evaluate on a 7-DoF Franka Panda with three contact-rich tasks: <strong>Peg-in-Hole (PIH)</strong>, <strong>Drawer</strong>, and <strong>Wiping</strong>. Expert demonstrations collected via GELLO teleoperation; 50 demos per task, 20 trials per condition.</p>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column">
+        <h3 class="title is-5">Experimental Setup</h3>
+        <div class="figure-placeholder">
+          <img src="./static/images/exp_setup.png" alt="Experimental setup: Franka Panda, GELLO teleoperation" onerror="this.parentElement.classList.add('has-placeholder'); this.alt='';">
+          <p class="is-size-7">Franka Panda with GELLO teleoperation — PIH, Drawer, Wiping tasks.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="title is-5">Main Results (Success Rate %)</h3>
+    <div class="table-container">
+      <table class="table is-bordered is-striped">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>PIH</th>
+            <th>Drawer</th>
+            <th>Wiping</th>
+            <th>Avg.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="5" class="has-background-light"><em>Feature-level fusion</em></td></tr>
+          <tr><td>Vision-Only</td><td>35</td><td>50</td><td>50</td><td>45.0</td></tr>
+          <tr><td>Early Fusion</td><td>55</td><td>70</td><td>60</td><td>61.7</td></tr>
+          <tr><td>FACTR</td><td>70</td><td>75</td><td>70</td><td>71.7</td></tr>
+          <tr><td>FoAR</td><td>75</td><td>80</td><td>75</td><td>76.7</td></tr>
+          <tr><td colspan="5" class="has-background-light"><em>Policy-level fusion</em></td></tr>
+          <tr><td>Heuristic Gate</td><td>80</td><td>80</td><td>70</td><td>76.7</td></tr>
+          <tr class="has-background-info-light"><td><strong>FCAR (Ours)</strong></td><td><strong>90</strong></td><td><strong>90</strong></td><td><strong>85</strong></td><td><strong>88.3</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content has-text-justified">
+      <p>FCAR achieves <strong>88.3%</strong> average success rate, outperforming the strongest baseline (FoAR) by <strong>11.6</strong> percentage points. Modality collapse in feature-level fusion: vision receives ~90% of gradient flow while force receives only ~2.2% in Early Fusion; FCAR avoids this via action-space decoupling and two-stage training.</p>
+    </div>
+
+    <h3 class="title is-5">Generalization (OOD, %)</h3>
+    <div class="table-container">
+      <table class="table is-bordered is-striped is-narrow">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>PIH Pos</th>
+            <th>PIH Offset</th>
+            <th>Wiping Path</th>
+            <th>Wiping Surface</th>
+            <th>Avg.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Vision-Only</td><td>20</td><td>15</td><td>25</td><td>35</td><td>23.8</td></tr>
+          <tr><td>FACTR</td><td>50</td><td>45</td><td>55</td><td>60</td><td>52.5</td></tr>
+          <tr><td>FoAR</td><td>60</td><td>55</td><td>60</td><td>65</td><td>60.0</td></tr>
+          <tr class="has-background-info-light"><td><strong>FCAR (Ours)</strong></td><td><strong>80</strong></td><td><strong>75</strong></td><td><strong>85</strong></td><td><strong>85</strong></td><td><strong>81.3</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="bibtex">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{fcar2025,
+  title     = {FCAR: Force-Conditioned Action Residual Policies for Contact-Rich Manipulation},
+  author    = {Anonymous Author(s)},
+  booktitle = {Conference},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>Project page: <a href="https://fcar-manipulation.github.io/fcar/">https://fcar-manipulation.github.io/fcar/</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+  document.querySelector('.navbar-burger').addEventListener('click', function() {
+    this.classList.toggle('is-active');
+    document.querySelector('.navbar-menu').classList.toggle('is-active');
+  });
+</script>
+</body>
+</html>
