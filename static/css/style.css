@@ -98,9 +98,33 @@ body {
   margin: 1rem 0;
 }
 
+/* 在视口内将表格水平居中（窄屏仍可横向滚动） */
+.table-container.is-centered-table {
+  text-align: center;
+}
+
+.table-container.is-centered-table .table {
+  display: inline-table;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .table th,
 .table td {
   vertical-align: middle;
+}
+
+/* 实验小节：与正文区一致的阅读宽度与标题间距 */
+.section#experiments .experiments-intro {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section#experiments .results-heading {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
 }
 
 .has-background-info-light {

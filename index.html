@@ -94,7 +94,6 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
-        <p class="content has-text-justified">效果展示：将主视频 <code>teaser.mp4</code> 放入 <code>static/videos/</code> 目录即可在此播放；或改为嵌入 YouTube / B 站链接（见 index.html 内注释）。</p>
         <div class="publication-video">
           <!-- 方式一：本地视频。将 teaser.mp4 放入 static/videos/ 即可 -->
           <video id="teaser-video" controls muted loop playsinline>
@@ -161,22 +160,22 @@
 <section class="section is-light" id="experiments">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Experiments</h2>
-    <div class="content has-text-justified">
+    <div class="content has-text-justified experiments-intro">
       <p>We evaluate on a 7-DoF Franka Panda with three contact-rich tasks: <strong>Peg-in-Hole (PIH)</strong>, <strong>Drawer</strong>, and <strong>Wiping</strong>. Expert demonstrations collected via GELLO teleoperation; 50 demos per task, 20 trials per condition.</p>
     </div>
 
     <div class="columns is-centered">
-      <div class="column">
-        <h3 class="title is-5">Experimental Setup</h3>
+      <div class="column is-four-fifths">
+        <h3 class="title is-5 has-text-centered">Experimental Setup</h3>
         <div class="figure-placeholder">
           <img src="./static/images/exp_setup.png" alt="Experimental setup: Franka Panda, GELLO teleoperation" onerror="this.parentElement.classList.add('has-placeholder'); this.alt='';">
-          <p class="is-size-7">Franka Panda with GELLO teleoperation — PIH, Drawer, Wiping tasks.</p>
+          <p class="is-size-7 has-text-centered">Franka Panda with GELLO teleoperation — PIH, Drawer, Wiping tasks.</p>
         </div>
       </div>
     </div>
 
-    <h3 class="title is-5">Main Results (Success Rate %)</h3>
-    <div class="table-container">
+    <h3 class="title is-5 has-text-centered results-heading">Main Results (Success Rate %)</h3>
+    <div class="table-container is-centered-table">
       <table class="table is-bordered is-striped">
         <thead>
           <tr>
@@ -200,12 +199,12 @@
       </table>
     </div>
 
-    <div class="content has-text-justified">
+    <div class="content has-text-justified experiments-intro">
       <p>FCAR achieves <strong>88.3%</strong> average success rate, outperforming the strongest baseline (FoAR) by <strong>11.6</strong> percentage points. Modality collapse in feature-level fusion: vision receives ~90% of gradient flow while force receives only ~2.2% in Early Fusion; FCAR avoids this via action-space decoupling and two-stage training.</p>
     </div>
 
-    <h3 class="title is-5">Generalization (OOD, %)</h3>
-    <div class="table-container">
+    <h3 class="title is-5 has-text-centered results-heading">Generalization (OOD, %)</h3>
+    <div class="table-container is-centered-table">
       <table class="table is-bordered is-striped is-narrow">
         <thead>
           <tr>
@@ -230,7 +229,7 @@
 
 <section class="section" id="bibtex">
   <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
     <pre><code>@inproceedings{fcar2025,
   title     = {FCAR: Force-Conditioned Action Residual Policies for Contact-Rich Manipulation},
   author    = {Anonymous Author(s)},
